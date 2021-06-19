@@ -8,24 +8,6 @@ const Modal = {
     }
 }
 
-// const transactions = [
-//     {
-//         description: 'Luz',
-//         amount: -50000,
-//         date: '23/01/2021'
-//     },
-//     {
-//         description: 'Website',
-//         amount: 500000,
-//         date: '23/01/2021'
-//     },
-//     {
-//         description: 'Internet',
-//         amount: -20000,
-//         date: '23/01/2021'
-//     }
-// ]
-
 const storage = {
     get() {
         return JSON.parse(localStorage.getItem('dev.finances:transactions')) || []
@@ -113,12 +95,8 @@ const DOM = {
 
 const Utils = {
     formatAmount(value) {
-        value = Number(value) * 100
-
-        // Forma que o Mike usou, para validar o valor informador pelo usuário.
-        // value = Number(value.replace(/\,\./g, ''))
-
-        return value
+        value = value * 100
+        return Math.round(value)
     },
     
     formatDate(date) {
